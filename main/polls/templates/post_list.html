@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Посты</title>
+</head>
+<body>
+<form method="get">
+    <input type="text" name="query" placeholder="Search..." value="{{ query }}">
+    <button type="submit">Search</button>
+</form>
+    <h2>Посты:</h2>
+    {% for post in posts%}
+    <strong>Пост</strong>
+    <a href="{% url 'post_detail' post.id %}">{{ post.title }}</a>
+        {{ post.description }}
+    <br>
+    {% endfor %}
+</body>
+</html>

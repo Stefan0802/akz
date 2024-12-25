@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+<h2>{{ user_profile.user.username }}</h2>
+<p>{{ user_profile.first_name }} {{ user_profile.last_name }} {{ user_profile.middle_name }}</p>
+<a href="{% url 'create_post' %}">Создать пост</a>
+<a href="{% url 'post_list' %}">Просмотр постов</a>
+<a href="{% url 'logout' %}">Выйти</a>
+{% else %}
+<a href="{% url 'register' %}">регистрация</a>
+<a href="{% url 'login' %}">авторизация</a>
+{% endif %}
+
+{% for order in orders %}
+
+
+<p>{{ order.product.title}}</p>
+<p>{{ order.product.description}}</p>
+{% endfor %}
+</body>
+</html>

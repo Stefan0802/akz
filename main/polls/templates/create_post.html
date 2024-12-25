@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Создание поста</title>
+</head>
+<body>
+
+<form method="post">
+    {% csrf_token %}
+    <h2>Создание поста</h2>
+    <label for="title">Введите название</label>
+    <input type="text" name="title" required>
+    <br>
+    <label for="description">Введите описание</label>
+    <input type="text" name="description">
+
+    <button type="submit">Создать</button>
+
+    {% if error %}
+    <div>{{error}}</div>
+    {% endif %}
+</form>
+
+</body>
+</html>
